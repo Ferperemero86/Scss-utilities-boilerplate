@@ -1,0 +1,9 @@
+@function iterate-numbers($length) {
+    $numbers: ();
+
+    @for $i from 0 through $length {
+        $numbers: append($numbers, $i);
+    }
+
+    @return $numbers;
+}

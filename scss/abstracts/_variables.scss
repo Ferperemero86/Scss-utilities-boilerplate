@@ -1,0 +1,170 @@
+//// Globals
+
+$spaces: iterate-numbers(20);
+$sides: ('top', 'right', 'bottom', 'left');
+
+
+
+
+// Alignment
+$grid-justify-items: (
+    'start',
+    'end',
+    'center',
+    'stretch',
+);
+
+$grid-align-items: $grid-justify-items;
+
+$grid-justify-content: (
+    'start',
+    'end',
+    'center',
+    'stretch',
+    'space-around',
+    'space-between',
+    'space-evenly',
+);
+
+
+
+
+//// Borders
+
+// Colors
+$color-spaces: iterate-numbers(10);
+
+//Radius 
+$radius-sizes: iterate-numbers(20); 
+
+
+
+
+//// Media Queries 
+
+// Breakpoints media for responsiveness
+$breakpoints-up: (
+    'small': 28rem,
+    'medium': 40rem,
+    'large': 75rem,
+);
+
+$breakpoints-down: (
+    'small': 39.9375rem,
+    'medium': 74.9375rem,
+    'large': 124.9375rem,
+);
+
+
+
+
+//// Grid
+
+// Column and row gaps 
+$column-row-gaps: (0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+
+
+
+
+//// Flex
+
+// Alignment
+$flex-justify-content: (
+    'flex-start', 
+    'flex-end', 
+    'center', 
+    'space-between', 
+    'space-around', 
+    'space-evenly', 
+    'start', 
+    'end', 
+    'left', 
+    'right',
+);
+
+$flex-align-content: (
+    'flex-start', 
+    'flex-end', 
+    'center', 
+    'space-between', 
+    'space-around', 
+    'space-evenly', 
+    'start', 
+    'end', 
+    'baseline',
+    'first baseline',
+    'last baseline',
+);
+
+$flex-align-items: (
+    'stretch',
+    'flex-start',
+    'flex-end',
+    'center',
+    'baseline',
+    'first baseline',
+    'last-baseline',
+    'start',
+    'end',
+    'self-start',
+    'self-end',
+);
+
+$flex-align-self: (
+    'auto',
+    'flex-start',
+    'flex-end',
+    'center',
+    'baseline',
+    'stretch',
+);
+
+
+// Elements direction
+$flex-direction: (
+    'row',
+    'row-reverse',
+    'column',
+    'column-reverse',
+);
+
+
+// Elements order
+$flex-order: iterate-numbers(10);
+
+
+
+
+//// Colors
+
+$colors-list: (
+    'white': #fff,
+    'black': '#000',
+);
+
+
+
+
+//// Overflow
+
+$overflow-options: (
+    'auto',
+    'hidden',
+    'visible',
+    'scroll',
+);
+
+
+
+//// Position
+
+$position-spaces: iterate-numbers(50);
+
+$position-types: (
+    'static',
+    'relative',
+    'absolute',
+    'fixed',
+    'sticky',
+);
+

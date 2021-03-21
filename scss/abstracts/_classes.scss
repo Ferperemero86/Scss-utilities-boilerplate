@@ -1,0 +1,706 @@
+//// Alignment classes
+
+
+// Creates flex and grid alignment classes
+@mixin alignment-classes($class, $list, $type) {
+
+    $list-length: length($list);
+
+    @for $i from 1 through $list-length {
+
+        $list-element: nth($list, $i);
+        
+        .#{$class}-#{$list-element} {
+          #{$type}: #{$list-element};
+        }
+
+        .#{$class}-md-#{$list-element} {
+            @include breakpoint-up('medium') {
+              #{$type}: #{$list-element};
+            }            
+        }
+
+        .#{$class}-lg-#{$list-element} {
+            @include breakpoint-up('large') {
+              #{$type}: #{$list-element};
+            }            
+        }
+
+    }
+
+}
+
+
+// Text alignment classes
+@mixin text-alignment-classes($type) {
+
+    .text-align-#{$type} {
+      text-align: #{$type}
+    }
+
+    .text-align-md-#{$type} {
+        @include breakpoint-up('medium') {
+          text-align: #{$type}
+        }
+    }
+
+    .text-align-lg-#{$type} {
+        @include breakpoint-up('large') {
+          text-align: #{$type}
+        }
+    } 
+
+}
+
+
+
+
+//// Borders
+
+// Width
+@mixin border-width-classes($spaces, $sides) {
+
+    $spaces-length: length($spaces);
+    $sides-length: length($sides);
+
+
+    @for $i from 1 to $sides-length {
+
+        @for $j from 1 to $spaces-length {
+
+            $side: nth($sides, $i);
+            $space: nth($spaces, $j);
+
+            // Border horizontal width classes
+            .border-x-#{$space} {
+              border-left: #{$space}px solid;
+              border-right: #{$space}px solid;
+            }
+
+            .border-x-md-#{$space} {
+                @include breakpoint-up('medium') {
+                  border-left: #{$space}px solid;
+                  border-right: #{$space}px solid;
+                }
+            }
+            
+            .border-x-lg-#{$space} {
+                @include breakpoint-up('large') {
+                  border-left: #{$space}px solid;
+                  border-right: #{$space}px solid;
+                }
+            }
+    
+    
+            // Border Vertical
+            .border-y-#{$space} {
+              border-top: #{$space}px solid;
+              border-bottom: #{$space}px solid;
+            }
+
+            .border-y-md-#{$space} {
+                @include breakpoint-up('medium') {
+                  border-top: #{$space}px solid;
+                  border-bottom: #{$space}px solid;
+                }
+            }
+
+            .border-y-lg-#{$space} {
+                @include breakpoint-up('large') {
+                  border-left: #{$space}px solid;
+                  border-right: #{$space}px solid;
+                }
+            }
+    
+
+            //Border sides
+            .border-#{$side}-#{$space} {
+              border-#{$side}: #{$space}px solid;
+            }
+
+            .border-#{$side}-md-#{$space} {
+                @include breakpoint-up('medium') {
+                  border-#{$side}: #{$space}px solid;
+                }
+            }
+
+            .border-#{$side}-lg-#{$space} {
+                @include breakpoint-up('large') {
+                  border-#{$side}: #{$space}px solid;
+                }
+            }
+
+
+        }
+
+
+    }
+
+}
+
+
+// Color
+@mixin border-color-classes($sides, $colors) {
+
+    @each $key, $value in $colors {
+
+        // All borders color
+        .border-color-#{$key} {
+          border-color: #{$value};
+        }
+
+        .border-color-md-#{$key} {
+            @include breakpoint-up('medium') {
+              border-color: #{$value};
+            }
+        }
+
+        .border-color-lg-#{$key} {
+            @include breakpoint-up('large') {
+              border-color: #{$value};
+            }
+        }
+
+        @each $side in $sides {
+
+            // Each border color
+            .border-#{$side}-#{$key} {
+              border-#{$side}: #{$value};
+            }
+
+            .border-#{$side}-md-#{$key} {
+              @include breakpoint-up('medium') {
+                border-#{$side}: #{$value};
+              }
+            }
+
+            .border-color-lg-#{$key} {
+              @include breakpoint-up('large') {
+                border-#{$side}: #{$value};
+              }
+            }
+
+
+        }
+        
+
+    }
+
+
+}
+
+
+//Radius
+@mixin border-radius($sizes) {
+
+    @each $size in $sizes {
+
+        .border-radius-#{$size} {
+          -moz-border-radius: $size;
+          -webkit-border-radius: $size;
+          border-radius: $size;
+        }
+
+        .border-radius-md-#{$size} {
+          @include breakpoint-up('medium') {
+            -moz-border-radius: $size;
+            -webkit-border-radius: $size;
+            border-radius: $size;
+          }
+        }
+
+        .border-radius-lg-#{$size} {
+          @include breakpoint-up('large') {
+            -moz-border-radius: $size;
+            -webkit-border-radius: $size;
+            border-radius: $size;
+          }
+        }
+
+    }
+
+}
+
+
+
+
+//// Colors
+
+// creates colors and backgrounds classes
+@mixin color-bg-classes($class, $type, $list) {
+
+    @each $key, $value in $list {
+
+        .#{$class}color-#{$key} {
+          #{$type}: #{$value}
+        }
+
+        .#{$class}color-md-#{$key} {
+            @include breakpoint-up('medium') {
+              #{$type}: #{$value}
+            }
+        }
+
+        .#{$class}color-lg-#{$key} {
+            @include breakpoint-up('large') {
+              #{$type}: #{$value}
+            }
+        }
+
+
+    }
+
+
+}
+
+
+
+
+//// Display classes
+
+
+@mixin display-classes($type) {
+
+    .d-#{$type} {
+      display: #{$type};
+    }
+
+    .d-md-#{$type} {
+        @include breakpoint-up('medium') {
+          display: #{$type};
+        }
+    }
+
+    .d-lg-#{$type} {
+        @include breakpoint-up('large') {
+          display: #{$type};
+        }
+    }
+
+}
+
+
+
+
+//// Grid
+
+// Creates Colums and Rows classes
+@mixin rows-columns-classes($class, $type) {
+
+    @for $i from 1 through 12 {
+
+        .#{$class}-#{$i} {
+          @if $type == 'row' {
+              @include grid-rows($i);
+          }
+          @if $type == 'col' {
+              @include grid-cols($i);
+          }
+        }
+
+        .#{$class}-md-#{$i} {
+          @include breakpoint-up('medium') {
+            @if $type == 'row' {
+                @include grid-rows($i);
+            }
+            @if $type == 'col' {
+                @include grid-cols($i);
+            }
+          }
+        }
+
+        .#{$class}-#{$i} {
+          @include breakpoint-up('large') {
+            @if $type == 'row' {
+                @include grid-rows($i);
+            }
+            @if $type == 'col' {
+                @include grid-cols($i);
+            }
+          }
+        }
+      
+
+    }
+    
+
+}
+
+
+// Creates Columns
+@mixin grid-columns($num) {
+    grid-template-columns: repeat($num, 1fr);
+}
+// Creates Rows
+@mixin grid-rows($num) {
+    grid-template-rows: repeat($num, 1fr);
+}
+
+
+// Creates column-gap row-gap classes
+@mixin column-row-gap-classes($class, $type, $list) {
+    
+    $length: length($list);
+
+    @for $i from 1 through  $length {
+
+        .#{$class}-gap {
+          #{$type}-gap: ($i/4)rem;
+        }
+
+        .#{$class}-md-gap {
+            @include breakpoint-up('medium') {
+              #{$type}-gap: ($i/4)rem;
+            }
+        }
+
+        .#{$class}-lg-gap {
+            @include breakpoint-up('large') {
+              #{$type}-gap: ($i/4)rem;
+            }
+        }
+
+    }
+
+}
+
+
+
+
+
+//// Media Queries
+
+// Creates Media breakpoints for responsiveness
+@mixin breakpoint-up($size) {
+    $size-selected: map-get($breakpoints-up, $size);
+
+    @media screen and (min-width: $size-selected) {
+        @content;
+    }
+}
+
+
+@mixin breakpoint-down($size) {
+    $size-selected: map-get($breakpoints-down, $size);
+
+    @media screen and (max-width: $size-selected) {
+        @content;
+    }
+}
+
+
+
+
+//// Flex
+
+// Creates Elements order classes
+@mixin order-classes($length) {
+
+    @for $i from 1 through $length {
+
+        .order {
+          order: $i;
+        }
+
+        .order-md {
+          @include breakpoint-up('medium') {
+            order: $i;
+          }
+        }
+
+        .order-lg {
+          @include breakpoint-up('large') {
+            order: $i;
+          }
+        }
+
+    }
+}
+
+
+// Creates flex-base, flex-grow and flex-shrink classes
+@mixin flex-size-variation-classes($class, $length) {
+
+    @for $i from 1 through $length {
+
+        .#{$class} {
+          #{$class}: $i
+        }
+
+        .#{$class}-md-#{$i} {
+          @include breakpoint-up('medium') {
+            #{$class}: $i;
+          }
+        }
+
+        .#{$class}-lg-#{$i} {
+          @include breakpoint-up('large') {
+            #{$class}: $i;
+          }
+        }
+    }
+
+}
+
+
+// Creates direction classes
+@mixin flex-direction-classes($list) {
+
+    $length: length($list);
+
+    @for $i from 1 through $length {
+
+        $value: nth($list, $i);
+
+        .flex-d-#{$value} {
+          flex-direction: #{$value};
+        }
+
+        .flex-d-md-#{$value} {
+          @include breakpoint-up('medium') {
+            flex-direction: #{$value};
+          }
+        }
+
+        .flex-d-lg-#{$value} {
+          @include breakpoint-up('large') {
+            flex-direction: #{$value};
+          }
+        }
+
+
+    }
+
+}
+
+
+
+
+//// Spaces 
+
+// Creates all margin and padding classes in the project.
+@mixin spacing-classes($sides, $spaces, $type) {
+    $space-type: '';
+
+    @if $type == 'margin' {
+        $space-type: 'm';
+    }
+    @if $type == 'padding' {
+        $space-type: 'p';
+    }
+
+    @each $side in $sides {
+
+        @each $space in $spaces {
+
+            // X Spacing
+            .#{$space-type}x-#{$space} {
+                #{$type}-left: #{$space}rem;
+                #{$type}-right: #{$space/4}rem;
+            }
+            
+            .#{$space-type}x-md-#{$space} {
+                @include breakpoint-up('medium') {
+                    #{$type}-left: #{$space/4}rem;
+                    #{$type}-right: #{$space/4}rem;
+                }
+            }
+
+            .#{$space-type}x-lg-#{$space} {
+                @include breakpoint-up('large') {
+                    #{$type}-left: #{$space/4}rem;
+                    #{$type}-right: #{$space/4}rem;
+                }
+            }
+
+
+            // Y Spacing
+            .#{$space-type}y-#{$space} {
+                #{$type}-top: #{$space/4}rem;
+                #{$type}-bottom: #{$space/4}rem;
+            }
+
+            .#{$space-type}y-md-#{$space} {
+                @include breakpoint-up('medium') {
+                    #{$type}-top: #{$space/4}rem;
+                    #{$type}-bottom: #{$space/4}rem;
+                }
+            }
+
+            .#{$space-type}y-lg-#{$space} {
+                @include breakpoint-up('large') {
+                    #{$type}-top: #{$space/4}rem;
+                    #{$type}-bottom: #{$space/4}rem;
+                }
+            }
+
+
+            // All Sides Spacing
+            .#{$space-type}#{str-slice($side, 0, 1)}-#{$space} {
+                #{$type}-#{$side}: #{$space/4}rem;
+            }
+
+            .#{$space-type}#{str-slice($side, 0, 1)}-md-#{$space} {
+                @include breakpoint-up('medium') {
+                    #{$type}-#{$side}: #{$space/4}rem;
+                }
+            }
+
+            .#{$space-type}#{str-slice($side, 0, 1)}-lg-#{$space} {
+                @include breakpoint-up('large') {
+                    #{$type}-#{$side}: #{$space/4}rem;
+                }
+            }
+
+        }
+
+    }
+}
+
+
+
+
+//// Overflow
+
+@mixin overflow-classes($list) {
+
+    $length: length($list);
+
+    @for $i from 1 to $length {
+
+        $value: nth($list, $i);
+
+        .overflow-#{$value} {
+            overflow: #{$value};
+        }
+        .overflow-md-#{$value} {
+            @include breakpoint-up('medium') {
+                overflow: #{$value};
+            }
+        }
+        .overflow-lg-#{$value} {
+            @include breakpoint-up('large') {
+                overflow: #{$value};
+            }
+        }
+
+
+    }
+
+
+}
+
+
+
+
+//// Position
+
+// Position value classes
+@mixin position-value-classes($list) {
+
+    @each $value in $list {
+
+        .position-#{$value} {            
+            position: #{value};
+        }
+        .position-md-#{$value} { 
+            @include breakpoint-up('medium') {
+                position: #{value};
+            }           
+        }
+        .position-lg-#{$value} { 
+            @include breakpoint-up('large') {
+                position: #{value};
+            }           
+        }
+
+    }
+
+
+}
+
+
+// Position Arrangement classes
+@mixin position-arrangement-classes($sides, $spaces) {
+
+    @each $side in $sides {
+
+        @each $space in $spaces {
+
+            .#{$side}-#{$space} {            
+                #{$side}: #{$space/4}rem;
+            }
+            .#{$side}-md-#{$space} { 
+                @include breakpoint-up('medium') {
+                    #{$side}: #{$space/4}rem;
+                }           
+            }
+            .#{$side}-lg-#{$space} { 
+                @include breakpoint-up('large') {
+                    #{$side}: #{$space/4}rem;
+                }           
+            }
+
+
+        }
+
+
+    }
+
+
+}
+
+
+
+
+// Position Center
+@mixin position-center($class, $type, $side) {
+
+    // Top and bottom alignment
+    .translate-middle {
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+    }
+    .translate-md-middle {
+        @include breakpoint-up('medium') {
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+    }
+    .translate-lg-middle {
+        @include breakpoint-up('large') {
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+    }
+
+
+    // Side alignment
+    .translate-middle-#{$class} {
+        transform: unquote('translate#{$type}(-50%)');
+        #{$side}: 50%;
+    }
+    .translate-md-middle-#{$class} {
+        @include breakpoint-up('medium') {
+            transform: unquote('translate#{$type}(-50%)');
+            #{$side}: 50%;
+        }
+    }
+    .translate-lg-middle-#{$class} {
+        @include breakpoint-up('large') {
+            transform: unquote('translate#{$type}(-50%)');
+            #{$side}: 50%;
+        }
+    }
+
+}
+
+
+
+
+
+
+

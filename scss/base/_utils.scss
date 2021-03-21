@@ -1,0 +1,122 @@
+//// Spacing 
+
+// Creates spacing Classes
+@include spacing-classes($sides, $spaces, 'margin');
+@include spacing-classes($sides, $spaces, 'padding');
+
+
+
+
+//// Borders
+
+// Creates border width classes
+@include border-width-classes($color-spaces, $sides);
+
+// Border color classes
+@include border-color-classes($sides, $colors-list);
+
+// Radius 
+@include border-radius($radius-sizes);
+
+
+
+//// Colors 
+
+// Creates color styles classes
+@include color-bg-classes('', 'color', $colors-list);
+@include color-bg-classes('bg-', 'background-color', $colors-list);
+
+
+
+
+//// Display
+
+//Creates display classes
+@include display-classes('grid');
+@include display-classes('inline-grid');
+
+@include display-classes('flex');
+
+@include display-classes('block');
+@include display-classes('inline-block');
+@include display-classes('none');
+
+
+
+
+//// Text alignment
+
+// Creates text alignment classes
+@include text-alignment-classes('center');
+@include text-alignment-classes('left');
+@include text-alignment-classes('justify');
+
+
+
+
+//// Grid
+
+// Creates row-column classes
+@include rows-columns-classes('col', 'column');
+@include rows-columns-classes('row', 'rows');
+
+
+//Creates row-column gaps classes
+@include column-row-gap-classes('col', 'column', $column-row-gaps);
+@include column-row-gap-classes('row', 'row', $column-row-gaps);
+
+
+// Creates classes for alignment
+@include alignment-classes('grid-ji', $grid-justify-items, 'justify-items');
+@include alignment-classes('grid-jc', $grid-justify-content, 'justify-content');
+
+@include alignment-classes('grid-ai', $grid-align-items, 'align-items');
+
+
+  
+
+//// Flex
+
+// Creates alignment classes
+@include alignment-classes('flex-jc', $flex-justify-content, 'justify-content');
+
+@include alignment-classes('flex-ac', $flex-align-content, 'align-content');
+@include alignment-classes('flex-ai', $flex-align-items, 'align-items');
+@include alignment-classes('flex-as', $flex-align-self, 'align-self');
+
+
+// Creates flex size classes
+@include flex-size-variation-classes('flex-basis', 5);
+@include flex-size-variation-classes('flex-grow', 5);
+@include flex-size-variation-classes('flex-shrink', 5);
+
+
+// Creates flex direction classes
+@include flex-direction-classes($flex-direction);
+
+
+
+
+//// Overflow classes
+@include overflow-classes($overflow-options);
+
+
+
+//// Position value classes 
+
+// Values
+@include position-value-classes($position-types);
+
+
+// Arrangement
+@include position-arrangement-classes($sides, $position-spaces);
+
+
+// Centering
+@include position-center('x', 'X', 'left');
+@include position-center('y', 'Y', 'top');
+
+
+
+
+
